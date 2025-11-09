@@ -1,0 +1,294 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Шереметьев — официальный сайт</title>
+  <link rel="icon" href="assets/wordmark.png">
+  <style>
+    :root{
+      --ink:#e8eef5; --muted:#a3b4c6; --card:rgba(255,255,255,.045);
+      --glass:rgba(255,255,255,.055); --br:18px; --shadow:0 18px 60px rgba(0,0,0,.55);
+      --a:#1ed89f; --b:#1e6bb8;
+    }
+    html,body{height:100%;color:var(--ink);background:#090c12 url('assets/bg_far.jpg') center/cover fixed no-repeat;
+      font:16px/1.65 Inter,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial;}
+    *{box-sizing:border-box} img{max-width:100%;display:block} a{color:inherit;text-decoration:none}
+    .wrap{max-width:1140px;margin:0 auto;padding:0 22px}
+    /* Parallax near layer */
+    .bg-near{position:fixed;inset:0;background:url('assets/bg_near.jpg') center/cover fixed no-repeat;opacity:.45;transform:translateZ(0);pointer-events:none}
+    header.hero{position:relative;padding:92px 0 56px;background:linear-gradient(180deg, rgba(9,12,18,.86), rgba(9,12,18,.25))}
+    .deco{position:absolute;inset:0;pointer-events:none}
+    .deco .l{position:absolute;left:0;top:70px;width:200px;height:260px;opacity:.85;filter:drop-shadow(0 20px 40px rgba(0,0,0,.5))}
+    .deco .r{position:absolute;right:0;bottom:10px;width:200px;height:260px;opacity:.85;filter:drop-shadow(0 20px 40px rgba(0,0,0,.5))}
+    .hero-grid{display:grid;grid-template-columns: 1.2fr 1fr;gap:42px;align-items:center}
+    .portrait{border-radius:24px;overflow:hidden;background:#000;box-shadow:var(--shadow)}
+    .portrait img{width:100%;height:auto;object-fit:contain}
+    h1{font-size:54px;line-height:1.12;margin:0 0 10px;font-weight:900}
+    .lead{color:var(--muted);margin:8px 0 22px}
+    .cta{display:flex;flex-wrap:wrap;gap:12px}
+    .btn{display:inline-flex;align-items:center;gap:10px;padding:14px 18px;border-radius:14px;border:1px solid rgba(255,255,255,.08);
+      background:linear-gradient(180deg,#17202b,#0e141b);box-shadow:var(--shadow);transition:transform .2s ease, box-shadow .2s ease}
+    .btn:hover{transform:translateY(-2px);box-shadow:0 28px 80px rgba(0,0,0,.6), 0 0 24px rgba(30,219,159,.18)}
+    .btn--ghost{background:transparent}
+    .section{padding:58px 0} h2{font-size:30px;margin:0 0 16px}
+    /* Equalizer divider (animated) */
+    .eq{display:flex;gap:10px;align-items:flex-end;height:120px;margin:28px 0}
+    .bar{width:14px;border-radius:7px;background:linear-gradient(180deg,var(--a),var(--b));box-shadow:0 10px 30px rgba(0,0,0,.4) height:24px; transition:height .15s ease; }
+    .bar{height:40px;opacity:.85 height:24px; transition:height .15s ease; }
+    
+    
+    
+    50%{height:110px}}
+    /* Platform tiles */
+    .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    .tile{position:relative;border-radius:16px;padding:18px;background:linear-gradient(180deg, rgba(255,255,255,.05), rgba(255,255,255,.03));
+      border:1px solid rgba(255,255,255,.08);box-shadow:var(--shadow);transition:transform .25s ease, box-shadow .25s ease, border-color .25s ease}
+    .tile:hover{transform:translateY(-4px);border-color:rgba(30,219,159,.35);box-shadow:0 30px 86px rgba(0,0,0,.55), 0 0 30px rgba(30,219,159,.16)}
+    .logo-wrap{background:radial-gradient(60% 90% at 50% 30%, rgba(30,219,159,.18), rgba(0,0,0,0));border:1px solid rgba(255,255,255,.06);
+      border-radius:14px;padding:14px;display:flex;align-items:center;justify-content:center;box-shadow:inset 0 8px 24px rgba(0,0,0,.35)}
+    .logo{height:72px;max-width:100%;object-fit:contain;filter:drop-shadow(0 10px 26px rgba(0,0,0,.5))}
+    .label{text-align:center;margin:10px 0 0;font-weight:700;letter-spacing:.2px}
+    .panel{background:var(--glass);border:1px solid rgba(255,255,255,.06);border-radius:var(--br);padding:20px;box-shadow:var(--shadow)}
+    .contacts{display:flex;flex-wrap:wrap;gap:12px;margin-top:14px}
+    .btn.mail::after{content:'Написать на e-mail'} .btn.vk::after{content:'Официальная группа ВК'}
+    /* Footer artwork */
+    footer{position:relative;padding:160px 0 90px;margin-top:40px;color:#b8c6d6;text-align:center;background:linear-gradient(180deg, rgba(9,12,18,.0), rgba(9,12,18,.85))}
+    .foot-art{position:absolute;left:50%;top:0;transform:translateX(-50%);width:min(1100px, 92vw);opacity:.9;pointer-events:none}
+    .foot-staff{display:flex;justify-content:center;gap:8px;margin-bottom:14px}
+    .dot{width:6px;height:6px;border-radius:99px;background:var(--a);opacity:.6;box-shadow:0 0 10px var(--a)}
+    .reveal{opacity:0;transform:translateY(14px);transition:opacity .6s ease, transform .6s ease}
+    .reveal.in{opacity:1;transform:none}
+    
+    .eq.eq--center{justify-content:center;flex-wrap:nowrap;margin-left:auto;margin-right:auto;width:100%}
+    .title-eq{display:flex;gap:6px;align-items:flex-end;height:20px;margin:0 0 10px}
+    .title-eq .tb{width:6px;height:10px;border-radius:3px;background:linear-gradient(180deg,var(--a),var(--b));opacity:.9; transition:height .12s ease; }
+    
+    50%{height:20px}}
+    /* mic float + spin */
+    .deco .r{animation:floatY 4.5s ease-in-out infinite, spinY 8s linear infinite}
+    @keyframes floatY{0%,100%{transform:translateY(0)}50%{transform:translateY(-16px)}}
+    @keyframes spinY{0%{transform:rotateY(0deg)}100%{transform:rotateY(360deg)}}
+
+    
+    /* Slow, smooth axial rotation for decorative line-art (no vertical drift) */
+    .deco-rot{transform-origin:center; animation:spinSlow 18s linear infinite; will-change:transform}
+    @keyframes spinSlow{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
+
+    /* Ensure EQ takes full content width and centers inside .wrap */
+    .eq.eq--center{justify-content:center;flex-wrap:nowrap;margin-left:auto;margin-right:auto;width:100%}
+
+    
+    /* Approved decorative objects */
+    .deco{position:absolute;inset:0;pointer-events:none}
+    .deco .l{position:absolute;left:0;top:60px;width:280px;height:320px;opacity:.9;filter:drop-shadow(0 20px 40px rgba(0,0,0,.5))}
+    .deco .r{position:absolute;right:0;bottom:0;width:300px;height:340px;opacity:.9;filter:drop-shadow(0 20px 40px rgba(0,0,0,.5))}
+    .deco-rot{width:100%;height:100%;object-fit:contain;animation:spinSlow 26s linear infinite;transform-origin:50% 50%}
+    @keyframes spinSlow{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}
+
+    @media (max-width: 980px){ .hero-grid{grid-template-columns:1fr} h1{font-size:40px} .grid3{grid-template-columns:1fr 1fr} .deco{display:none} }
+    
+    .logo-wrap{min-height:140px;padding:18px;background:linear-gradient(180deg, rgba(30,219,159,.08), rgba(255,255,255,.02));}
+    .logo{max-height:100px}
+
+    @media (max-width: 640px){ .grid3{grid-template-columns:1fr} h1{font-size:32px} }
+    @media (prefers-reduced-motion: reduce){ .reveal{transition:none} .btn{transition:none} .bar{ height:24px; transition:height .15s ease; } }
+  </style>
+
+  <style>
+    /* HARD OVERRIDE: platforms in one row */
+    main .grid3{ display:grid !important;
+                 grid-template-columns: repeat(3, minmax(320px, 1fr)) !important;
+                 gap: 24px !important;
+                 align-items: stretch !important;
+                 justify-items: stretch !important; }
+    @media (max-width: 1200px){
+      main .grid3{ grid-template-columns: repeat(3, minmax(280px, 1fr)) !important; }
+    }
+    @media (max-width: 980px){
+      main .grid3{ grid-template-columns: 1fr 1fr !important; }
+    }
+    @media (max-width: 640px){
+      main .grid3{ grid-template-columns: 1fr !important; }
+    }
+    main .tile{ height: 100% !important; }
+    main .logo-wrap{ min-height: 160px !important; padding: 18px !important; }
+    main .logo{ max-height: 110px !important; object-fit: contain !important; }
+  </style>
+
+
+  <style>
+    .eq{display:flex !important; gap:10px !important; align-items:flex-end !important; height:120px !important; 
+        margin:28px auto !important; justify-content:center !important; max-width:900px !important;}
+    .bar{width:14px; height:24px; border-radius:7px; background:linear-gradient(180deg, var(--a), var(--b));
+         box-shadow:0 10px 30px rgba(0,0,0,.4); transition:height .15s ease;}
+    .title-eq .tb{width:6px; height:10px; border-radius:3px; background:linear-gradient(180deg,var(--a),var(--b)); opacity:.9; transition:height .12s ease;}
+  </style>
+
+</head>
+<body>
+  <div class="bg-near" id="bgNear"></div>
+  <header class="hero">
+    <div class="deco" aria-hidden="true"><div class="l"><img class="deco-rot" src="assets/clef-approved.png" alt=""></div><div class="r"><img class="deco-rot" src="assets/mic-approved.png" alt=""></div></div>
+    
+    <div class="wrap hero-grid reveal">
+      <div class="portrait"><img src="assets/portrait.png" alt="Шереметьев — портрет"></div>
+      <div>
+        
+          <div class="title-eq" aria-hidden="true"><span class='tb'></span><span class='tb'></span><span class='tb'></span><span class='tb'></span><span class='tb'></span><span class='tb'></span><span class='tb'></span><span class='tb'></span><span class='tb'></span><span class='tb'></span><span class='tb'></span><span class='tb'></span><span class='tb'></span><span class='tb'></span><span class='tb'></span><span class='tb'></span><span class='tb'></span><span class='tb'></span><span class='tb'></span><span class='tb'></span></div>
+          <h1>Шереметьев</h1>
+        <p class="lead">Музыка на стыке Trap, Rock, Pop и Hip‑Hop. Любовь, искренность, борьба и поиск настоящих ценностей.</p>
+        <div class="cta">
+          <a class="btn" href="#platforms">Слушать</a>
+          <a class="btn btn--ghost" href="#bio">Биография</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="wrap">
+    
+    
+    
+    <section id="platforms" class="section">
+      <h2>Площадки</h2>
+      <div class="grid3">
+        <a class="tile" href="https://zvuk.com/artist/213315722" target="_blank" rel="noopener">
+          <div class="logo-wrap"><img class="logo" src="assets/logo-zvuk.jpg" alt="Звук"></div>
+          <div class="label">Звук</div>
+        </a>
+        <a class="tile" href="https://music.yandex.ru/artist/24354299" target="_blank" rel="noopener">
+          <div class="logo-wrap"><img class="logo" src="assets/logo-yandex.jpg" alt="Яндекс Музыка"></div>
+          <div class="label">Яндекс Музыка</div>
+        </a>
+        <a class="tile" href="https://vk.com/artist/sheremetyev" target="_blank" rel="noopener">
+          <div class="logo-wrap"><img class="logo" src="assets/logo-vk.jpg" alt="ВК Музыка"></div>
+          <div class="label">ВК Музыка</div>
+        </a>
+      </div>
+            <div class="eq eq--center" aria-hidden="true">
+        <div class='bar'></div>
+        <div class='bar'></div>
+        <div class='bar'></div>
+        <div class='bar'></div>
+        <div class='bar'></div>
+        <div class='bar'></div>
+        <div class='bar'></div>
+        <div class='bar'></div>
+        <div class='bar'></div>
+        <div class='bar'></div>
+        <div class='bar'></div>
+        <div class='bar'></div>
+        <div class='bar'></div>
+        <div class='bar'></div>
+        <div class='bar'></div>
+        <div class='bar'></div>
+        <div class='bar'></div>
+        <div class='bar'></div>
+        <div class='bar'></div>
+        <div class='bar'></div>
+      </div>
+    </section>
+
+    
+    
+
+    <section id="bio" class="section reveal">
+      <h2>Биография</h2>
+      <div class="panel">
+        <p> 
+Шереметьев - это имя, за которым стоит реальная история человека, прошедшего через суровые испытания, сохранившего внутреннюю силу и честность. Он не стремился стать артистом - музыка сама пришла в его жизнь, как способ выжить, понять и рассказать о себе миру.
+Родившийся 21 августа 1982 года в Одессе, Александр вырос в атмосфере постоянных перемен. Детство прошло между Украиной и Сибирью - в городах Комсомольск и Нижневартовск, где морозы закаляют не только тело, но и характер. Его мама, Лилия, воспитывала детей одна, совмещая учёбу и работу, а отец, Сергей, долго оставался в стороне. Семья жила скромно, но в доме всегда звучали книги и песни - от Пушкина до Высоцкого, от Антонова до Майкла Джексона. Именно тогда у будущего артиста родилась любовь к слову и музыке.
+Стихи Александр начал писать почти одновременно с тем, как научился читать. Он рос замкнутым, вдумчивым мальчиком, впитывающим всё вокруг - книги, голоса, судьбы. Со временем жизнь заставила его стать сильным: драки, дворовые разборки, армия, взрослая работа - всё это стало частью его внутренней школы.
+Он получил техническое образование и стал IT-специалистом, но поэзия и музыка никогда не отпускали. Псевдоним Шереметьев родился в Петербурге - городе, где он впервые почувствовал вдохновение делиться своими стихами. Фамилия, по его словам, «отражает внутреннюю интеллигентность, скрытую под маской хулигана».
+Музыка Шереметьева - это честный разговор с миром. Без масок, без выдуманных образов. В каждом треке - искренность, боль, сила и поиск гармонии. Он не стремится к трендам, он говорит то, что чувствует. 
+Шереметьев ценит доброту, презирает предательство и мечтает о гармонии - в себе, в людях, в мире.
+Он не хочет казаться - он есть.
+И, пожалуй, именно это делает его музыку по-настоящему живой.</p>
+      </div>
+      <div class="contacts">
+        <a class="btn mail" href="mailto:BlackAngelnv86@yandex.ru?subject=%D0%A8%D0%B5%D1%80%D0%B5%D0%BC%D0%B5%D1%82%D1%8C%D0%B5%D0%B2%20%E2%80%94%20%D1%81%D0%B2%D1%8F%D0%B7%D1%8C"></a>
+        <a class="btn vk" href="https://vk.com/club230348316" target="_blank" rel="noopener"></a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="foot-art" aria-hidden="true">
+      <div class="foot-staff"><span class='dot'></span><span class='dot'></span><span class='dot'></span><span class='dot'></span><span class='dot'></span><span class='dot'></span><span class='dot'></span><span class='dot'></span><span class='dot'></span><span class='dot'></span><span class='dot'></span><span class='dot'></span><span class='dot'></span><span class='dot'></span><span class='dot'></span><span class='dot'></span><span class='dot'></span><span class='dot'></span><span class='dot'></span><span class='dot'></span><span class='dot'></span><span class='dot'></span><span class='dot'></span><span class='dot'></span><span class='dot'></span><span class='dot'></span><span class='dot'></span><span class='dot'></span><span class='dot'></span><span class='dot'></span><span class='dot'></span><span class='dot'></span><span class='dot'></span><span class='dot'></span><span class='dot'></span><span class='dot'></span><span class='dot'></span><span class='dot'></span><span class='dot'></span><span class='dot'></span><span class='dot'></span><span class='dot'></span><span class='dot'></span><span class='dot'></span><span class='dot'></span><span class='dot'></span><span class='dot'></span><span class='dot'></span><span class='dot'></span><span class='dot'></span><span class='dot'></span><span class='dot'></span><span class='dot'></span><span class='dot'></span><span class='dot'></span><span class='dot'></span><span class='dot'></span><span class='dot'></span><span class='dot'></span><span class='dot'></span></div>
+      <div class="eq eq--center"><div class='bar'></div>
+        <div class='bar'></div>
+        <div class='bar'></div>
+        <div class='bar'></div>
+        <div class='bar'></div>
+        <div class='bar'></div>
+        <div class='bar'></div>
+        <div class='bar'></div>
+        <div class='bar'></div>
+        <div class='bar'></div>
+        <div class='bar'></div>
+        <div class='bar'></div>
+        <div class='bar'></div>
+        <div class='bar'></div>
+        <div class='bar'></div>
+        <div class='bar'></div>
+        <div class='bar'></div>
+        <div class='bar'></div></div>
+    </div>
+    <div class="wrap reveal">© <span id="y"></span> Шереметьев</div>
+  </footer>
+
+  <script>
+    document.getElementById('y').textContent = new Date().getFullYear();
+    // reveal
+    const io = new IntersectionObserver((es)=>{ es.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target);} }); },{threshold:.12});
+    document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+    // parallax
+    const near = document.getElementById('bgNear');
+    window.addEventListener('mousemove', (e)=>{
+      const x = (e.clientX / window.innerWidth - .5) * 8;
+      const y = (e.clientY / window.innerHeight - .5) * 8;
+      near.style.transform = `translate(${x}px, ${y}px)`;
+    });
+  </script>
+
+  
+
+
+  
+
+
+  
+  <script>
+    // Chaotic, per-bar EQ animation with independent timers, slight inertia
+    function driveEQ(containerSelector, minH, maxH, minMs, maxMs){
+      document.querySelectorAll(containerSelector).forEach(cont=>{
+        const bars = cont.querySelectorAll('.bar, .tb');
+        const state = Array.from(bars).map(()=>({h:0, target:0, t:0}));
+        function retarget(i){
+          state[i].target = Math.floor(minH + Math.random()*(maxH-minH));
+          state[i].t = Date.now() + Math.random()*(maxMs-minMs)+minMs;
+        }
+        state.forEach((_,i)=>retarget(i));
+        function tick(){
+          const now = Date.now();
+          bars.forEach((b,i)=>{
+            if(now >= state[i].t) retarget(i);
+            // ease towards target
+            state[i].h += (state[i].target - state[i].h) * 0.25;
+            b.style.height = Math.max(minH, Math.min(maxH, state[i].h)) + "px";
+          });
+          requestAnimationFrame(tick);
+        }
+        tick();
+      });
+    }
+    // Wide EQs
+    driveEQ('.eq.eq--center', 14, 120, 60, 220);
+    // Title mini-EQ
+    driveEQ('.title-eq', 4, 22, 60, 160);
+  </script>
+    
+
+</body>
+</html>
