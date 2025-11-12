@@ -1,9 +1,0 @@
-<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 180 600' fill='none'>
-  <g stroke='#1ed89f' stroke-opacity='.25' stroke-width='2'>
-    <ellipse cx='90' cy='80' rx='50' ry='60'/>
-    <rect x='70' y='140' width='40' height='160' rx='20'/>
-    <path d='M30 240 q60 60 120 0' />
-    <rect x='80' y='300' width='20' height='200'/>
-    <rect x='40' y='500' width='100' height='20' rx='8'/>
-  </g>
-</svg>
